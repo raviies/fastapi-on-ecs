@@ -1,7 +1,7 @@
 include .env 
 
 .EXPORT_ALL_VARIABLES:
-APP_NAME=my-app-name
+APP_NAME=nyt-movies-app1
 
 TAG=latest
 TF_VAR_app_name=${APP_NAME}
