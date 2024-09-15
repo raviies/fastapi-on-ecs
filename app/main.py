@@ -28,12 +28,13 @@ def extract_article_info(data):
     Returns:
         list: A list of dictionaries, each containing the extracted information for one article.
     """
-    current_time = datetime.now().strftime("%H:%M:%S")
-    print("extract_article_info Run time is:", current_time)
+    
+    
     
     articles_info = []
 
     for article in data["response"]["docs"]:
+        current_time = datetime.now().strftime("%H:%M:%S")
         abstract = article.get("abstract")  # Use .get() to handle missing keys
         web_url = article.get("web_url")
        
@@ -58,7 +59,9 @@ def extract_article_info(data):
             "headlines": grouped_headlines,
             "keywords": grouped_keywords,
             "author_name": author_name,
+            "current_time": current_time
         })
+    print("extract_article_info Run time is:", current_time)
     return articles_info
 
 @app.get("/")
